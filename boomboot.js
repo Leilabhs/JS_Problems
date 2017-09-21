@@ -75,13 +75,53 @@ function caughtSpeeding(speed, birthday){
     }
 }
 
-function fizzBuzz(int){
-
+function fizz_buzz(int){
+    if(int % 3 == 0 && int % 5 == 0){
+        return("FizzBuzz");
+    }else if (int % 3 == 0){
+        return("Fizz");
+    }else if (int % 5 == 0){
+        return("Buzz");
+    }else if (int % 1 == 0){
+        return(int + "!");
+    }
 }
 
+function teaParty(tea, candy){
+    if(tea < 5 || candy < 5){
+        return(0);
+    }else if(tea / 2 >= candy || candy / 2 >= tea){
+        return(2);
+    }else if(tea >= 5 && candy >= 5){
+        return(1);
+    }
+}
 
+function blackjack(int1, int2){
+    if(int1<= 21 && int2 <= 21){
+        return Math.max(int1, int2);
+    }else if(int1 <= 21){
+        return int1;
+    }else if(int2<= 21) {
+        return int2;
+    }else if(int1 >21 && int2>21){
+        return 0;
+    }
+}
 
-
+function loneSum(a,b,c) {
+    if (a == b && b == c) {
+        return(0);
+    } else if (a == b){
+        return (c);
+    }else if(b==c){
+        return(a);
+    }else if(a==c){
+        return(b);
+    }else if(a!=b && a!=c && b!= c){
+        return(a + b + c);
+    }
+}
 
 
 

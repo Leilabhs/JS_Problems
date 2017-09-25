@@ -123,6 +123,118 @@ function loneSum(a,b,c) {
     }
 }
 
+function firstLast6(ints){
+    var first = ints[0];
+    var last = ints[ints.length-1];
+    if(first ==6 || last == 6){
+        return(true);
+    }else{
+        return(false);
+    }
+}
+
+function has23(array){
+    var first = array[0];
+    var second = array[1];
+    if(first == 2 || second == 2 || first == 3 || second == 3){
+        return(true);
+    }else{
+        return(false);
+    }
+}
+
+function fix23(array){
+    for(i=0; i<array.length; i++) {
+        if (array[i] == 2 && array [i + 1] == 3) {
+            array[i + 1] = 0;
+        }
+    }
+    return(array);
+}
+
+function countYZ(string){
+    var count = 0;
+    for(i=0; i<string.length; i++){
+        if(string[i]== "z" && string[i+1] == " "
+            || string[i]== "z" && i + 1 == string.length
+            || string[i]== "y" && string[i+1] == " "
+            || string[i]== "y" && i + 1 == string.length
+            || string[i]== "Z" && string[i+1] == " "
+            || string[i]== "Z" && i + 1 == string.length
+            || string[i]== "Y" && string[i+1] == " "
+            || string[i]== "Y" && i + 1 == string.length){
+            count++;
+        }
+    }
+    return count;
+}
+
+function endOther(string1, string2){
+    string1 = string1.toLowerCase();
+    string2 = string2.toLowerCase();
+    if(string1.substring(string1.length - string2.length, string1.length) == string2
+    || string2.substring(string2.length - string1.length, string2.length) == string1){
+        return(true);
+    }else{
+        return(false);
+    }
+}
+
+function starOut(str){
+    var newStr = "";
+    for(i=0; i<str.length; i++){
+        if(str[i] != "*" && str[i + 1] == "*") {
+        }else{
+            newStr += str[i];
+        }
+    }
+    var newStr2 = "";
+    for(i=0; i<newStr.length; i++) {
+        if (newStr[i] != "*" && newStr[i - 1] == "*") {
+        }else{
+            newStr2 += newStr[i];
+        }
+    }
+    var newStr3 = "";
+    for(i=0; i<newStr2.length; i++) {
+        if(newStr2[i] == "*"){
+        }else{
+            newStr3 += newStr2[i];
+        }
+    }
+    return(newStr3);
+}
+
+
+function getSandwich(str){
+    //get back to this!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    for (var i=5; i<str.length-6; i++){
+        var bread1 = str.substring(str[i-6], str[i-1]);
+        if(bread1 == "bread"){
+            var contentStart = i;
+            break;
+        }
+    }
+
+    for (var j=contentStart; j<str.length-6; j++){
+        var bread2 = str.substring(str[j], str[j+6]);
+        if(bread2 == "bread"){
+            var contentEnd = j;
+            break;
+        }
+    }
+    var contents = str.substring(contentStart, contentEnd);
+    return(contents);
+}
+
+function canBalance(array){
+
+}
+
+
+
+
+
 
 
 

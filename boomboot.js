@@ -1,3 +1,10 @@
+function tester() {
+
+    document.getElementById("output").innerHTML = getSandwich("breadjambread");
+
+}
+
+
 /**
  * Created by h205p2 on 9/15/17.
  */
@@ -208,27 +215,61 @@ function starOut(str){
 
 function getSandwich(str){
     //get back to this!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    for (var i=5; i<str.length-6; i++){
-        var bread1 = str.substring(str[i-6], str[i-1]);
-        if(bread1 == "bread"){
-            var contentStart = i;
+    var contentStart = 0;
+    var bread1;
+    while(contentStart<str.length){
+        bread1 = str.substring(contentStart-5, contentStart);
+        if(bread1 == "bread") {
             break;
         }
+        contentStart++;
     }
+    if(contentStart == str.length){
+        return("");
+    }
+    else {
+        var contentEnd = str.length;
+        var bread2;
+        while (contentEnd >= 0) {
+            bread2 = str.substring(contentEnd, contentEnd + 5);
+            if (bread2 == "bread") {
+                break;
+            }
+            contentEnd--;
+        }
+        if (contentEnd == 0) {
+            return ("");
+        }
 
-    for (var j=contentStart; j<str.length-6; j++){
-        var bread2 = str.substring(str[j], str[j+6]);
-        if(bread2 == "bread"){
-            var contentEnd = j;
-            break;
+        //top:fix this!
+        if(contentStart + 6 == contentEnd){
+            return("");
+        //bottom: fix this
+        }else{
+            var contents = str.substring(contentStart, contentEnd);
+            return (contents);
         }
+
     }
-    var contents = str.substring(contentStart, contentEnd);
-    return(contents);
 }
 
 function canBalance(array){
-
+    var frontMark = 0;
+    var frontSum = 0;
+    var backMark = array.length;
+    var backSum = 0;
+    while(frontMark < array.length && backMark>0){
+        frontSum += array[frontMark];
+        backSum += array[array.length -backMark];
+        if(frontSum == backSum && frontMark != backMark){
+            return true;
+        }
+        frontMark ++;
+        backMark--;
+    }
+    if(frontMark == array.length || backMark == 0){
+        return false;
+    }
 }
 
 

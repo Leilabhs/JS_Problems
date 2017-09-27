@@ -10,29 +10,26 @@ function tester() {
  */
 //write first method
 function sleep_in(weekday,vacation) {
-    if(weekday == false || vacation == true){
-        return(true);
-    }else if(weekday == true && vacation == false){
-        return(false);
+    if(weekday == false || vacation == true) {
+        return true;
     }
+        return false;
 }
 
 //write second method
 function monkey_trouble(a_smile, b_smile) {
     if(a_smile == true){
         if(b_smile == true){
-            return(true);
-        }else if(b_smile == false){
-            return(false);
+            return true;
         }
+        return false;
     }else if(a_smile == false){
         if(b_smile == false){
-            return(true);
-        }else if(b_smile == true){
-            return(false);
+            return true;
         }
+        return false;
     }else{
-        return(false);
+        return false;
     }
 }
 
@@ -255,22 +252,72 @@ function getSandwich(str){
 
 function canBalance(array){
     var frontMark = 0;
-    var frontSum = 0;
-    var backMark = array.length;
-    var backSum = 0;
-    while(frontMark < array.length && backMark>0){
-        frontSum += array[frontMark];
-        backSum += array[array.length -backMark];
-        if(frontSum == backSum && frontMark != backMark){
+    var frontSum = array[frontMark];
+    var backMark = array.length-1;
+    var backSum = array[backMark];
+    while(frontMark < backMark){
+        if(frontSum == backSum && frontMark == backMark -1){
             return true;
         }
-        frontMark ++;
-        backMark--;
+        if(frontSum <= backSum){
+            frontMark ++;
+            frontSum += array[frontMark]
+        }
+        if(frontSum == backSum && frontMark == backMark -1){
+            return true;
+        }
+        if(backSum <= frontSum){
+            backMark --;
+            backSum += array[backMark];
+        }
     }
-    if(frontMark == array.length || backMark == 0){
-        return false;
-    }
+    return false;
 }
+
+function countClumps(array){
+    var clumps = 0;
+    for(i=1; i<array.length; i++){
+        if(array[i] == array[i-1] && array[i] != array[i-2]){
+            clumps ++;
+        }
+    }
+    return clumps;
+}
+
+function evenlySpaced(a,b,c){
+    var small;
+    var med;
+    var large;
+    if(a<b){
+        if(b<c){
+            small = a;
+            med = b;
+            large = c;
+        }else{
+            small = c;
+            med = a;
+            large = b;
+        }
+    }
+    if(a>b){
+        if(a<c){
+            small = b;
+            med = a;
+            large = c;
+        }else{
+            small = c;
+            med  = b;
+            large = a;
+        }
+    }
+    if(med-small == large-med){
+        return true;
+    }
+    return false;
+}
+
+
+
 
 
 

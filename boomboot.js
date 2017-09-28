@@ -80,13 +80,16 @@ function caughtSpeeding(speed, birthday){
 }
 
 function fizz_buzz(int){
-    if(int % 3 == 0 && int % 5 == 0){
-        return("FizzBuzz");
-    }else if (int % 3 == 0){
-        return("Fizz");
-    }else if (int % 5 == 0){
+    if(int % 3 == 0 && int % 5 == 0) {
+        return ("FizzBuzz");
+    }
+    if (int % 3 == 0) {
+        return ("Fizz");
+    }
+    if (int % 5 == 0){
         return("Buzz");
-    }else if (int % 1 == 0){
+
+    if (int % 1 == 0){
         return(int + "!");
     }
 }
@@ -94,9 +97,11 @@ function fizz_buzz(int){
 function teaParty(tea, candy){
     if(tea < 5 || candy < 5){
         return(0);
-    }else if(tea / 2 >= candy || candy / 2 >= tea){
+    }
+    if(tea / 2 >= candy || candy / 2 >= tea){
         return(2);
-    }else if(tea >= 5 && candy >= 5){
+    }
+    if(tea >= 5 && candy >= 5){
         return(1);
     }
 }
@@ -104,11 +109,14 @@ function teaParty(tea, candy){
 function blackjack(int1, int2){
     if(int1<= 21 && int2 <= 21){
         return Math.max(int1, int2);
-    }else if(int1 <= 21){
+    }
+    if(int1 <= 21){
         return int1;
-    }else if(int2<= 21) {
+    }
+    if(int2<= 21) {
         return int2;
-    }else if(int1 >21 && int2>21){
+    }
+    if(int1 >21 && int2>21){
         return 0;
     }
 }
@@ -131,10 +139,10 @@ function firstLast6(ints){
     var first = ints[0];
     var last = ints[ints.length-1];
     if(first ==6 || last == 6){
-        return(true);
-    }else{
-        return(false);
+        return true;
     }
+    return false;
+
 }
 
 function has23(array){
@@ -239,7 +247,7 @@ function getSandwich(str){
         }
 
         //top:fix this!
-        if(contentStart + 6 == contentEnd){
+        if(str.indexOf('bread') == str.lastIndexOf('bread')){
             return("");
         //bottom: fix this
         }else{
@@ -288,26 +296,40 @@ function evenlySpaced(a,b,c){
     var small;
     var med;
     var large;
-    if(a<b){
-        if(b<c){
+    if(a<=b){
+        if(b<=c){
             small = a;
             med = b;
             large = c;
         }else{
-            small = c;
-            med = a;
-            large = b;
+            if(a<=c){
+                small = a;
+                med = c;
+                large = b;
+            }
+            else {
+                small = c;
+                med = a;
+                large = b;
+            }
         }
     }
-    if(a>b){
-        if(a<c){
+    if(b<=a){
+        if(a<=c){
             small = b;
             med = a;
             large = c;
         }else{
-            small = c;
-            med  = b;
-            large = a;
+            if(b<=c){
+                small = b;
+                med = c;
+                large = a;
+            }
+            else {
+                small = c;
+                med = b;
+                large = a;
+            }
         }
     }
     if(med-small == large-med){

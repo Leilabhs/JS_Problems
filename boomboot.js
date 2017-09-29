@@ -5,37 +5,25 @@ function tester() {
 }
 
 
-/**
- * Created by h205p2 on 9/15/17.
- */
-//write first method
+
 function sleep_in(weekday,vacation) {
-    if(weekday == false || vacation == true) {
-        return true;
-    }
-        return false;
+    return(weekday == false || vacation == true);
 }
 
 //write second method
 function monkey_trouble(a_smile, b_smile) {
     if(a_smile == true){
-        if(b_smile == true){
-            return true;
-        }
-        return false;
-    }else if(a_smile == false){
-        if(b_smile == false){
-            return true;
-        }
-        return false;
-    }else{
-        return false;
+        return(b_smile == true);
     }
+    if(a_smile == false) {
+        return(b_smile == false);
+    }
+    return false;
 }
 
 function string_times(string,int){
     var multipliedString = "";
-    for(i = 0; i<int; i++){
+    for(var i = 0; i<int; i++){
         multipliedString += string;
     }
     return(multipliedString);
@@ -44,7 +32,7 @@ function string_times(string,int){
 function front_times(string,n){
     var front = string.substring(0,3);
     var multipliedFront = "";
-    for(i = 0; i<n; i++) {
+    for(var i = 0; i<n; i++) {
         multipliedFront += front;
     }
     return(multipliedFront);
@@ -53,8 +41,7 @@ function front_times(string,n){
 function string_bits(string){
     var bitString = "";
     for(var i=0; i<string.length; i+=2){
-        var newLetter = string[i];
-        bitString += newLetter;
+        bitString += string[i]
     }
     return(bitString);
 }
@@ -63,17 +50,22 @@ function caughtSpeeding(speed, birthday){
     if(birthday == false){
         if(speed <= 60){
             return(0);
-        }else if(60 < speed && speed <=80) {
+        }
+        if(60 < speed && speed <=80) {
             return(1);
-        }else if(speed > 80){
+        }
+        if(speed > 80){
             return(2);
         }
-    }else if(birthday == true){
+    }
+    if(birthday == true){
         if(speed <= 65){
             return(0);
-        }else if(65 < speed && speed <=85) {
+        }
+        if(65 < speed && speed <=85) {
             return(1);
-        }else if(85 < speed){
+        }
+        if(85 < speed){
             return(2);
         }
     }
@@ -86,12 +78,10 @@ function fizz_buzz(int){
     if (int % 3 == 0) {
         return ("Fizz");
     }
-    if (int % 5 == 0){
-        return("Buzz");
-
-    if (int % 1 == 0){
-        return(int + "!");
+    if (int % 5 == 0) {
+        return ("Buzz");
     }
+    return(int + "!");
 }
 
 function teaParty(tea, candy){
@@ -124,13 +114,16 @@ function blackjack(int1, int2){
 function loneSum(a,b,c) {
     if (a == b && b == c) {
         return(0);
-    } else if (a == b){
+    }
+    if (a == b){
         return (c);
-    }else if(b==c){
+    }
+    if(b==c){
         return(a);
-    }else if(a==c){
+    }if(a==c){
         return(b);
-    }else if(a!=b && a!=c && b!= c){
+    }
+    if(a!=b && a!=c && b!= c){
         return(a + b + c);
     }
 }
@@ -138,25 +131,20 @@ function loneSum(a,b,c) {
 function firstLast6(ints){
     var first = ints[0];
     var last = ints[ints.length-1];
-    if(first ==6 || last == 6){
-        return true;
-    }
-    return false;
+    return(first ==6 || last == 6);
+
 
 }
 
 function has23(array){
     var first = array[0];
     var second = array[1];
-    if(first == 2 || second == 2 || first == 3 || second == 3){
-        return(true);
-    }else{
-        return(false);
-    }
+    return(first == 2 || second == 2 || first == 3 || second == 3);
+
 }
 
 function fix23(array){
-    for(i=0; i<array.length; i++) {
+    for(var i=0; i<array.length; i++) {
         if (array[i] == 2 && array [i + 1] == 3) {
             array[i + 1] = 0;
         }
@@ -166,7 +154,7 @@ function fix23(array){
 
 function countYZ(string){
     var count = 0;
-    for(i=0; i<string.length; i++){
+    for(var i=0; i<string.length; i++){
         if(string[i]== "z" && string[i+1] == " "
             || string[i]== "z" && i + 1 == string.length
             || string[i]== "y" && string[i+1] == " "
@@ -184,34 +172,30 @@ function countYZ(string){
 function endOther(string1, string2){
     string1 = string1.toLowerCase();
     string2 = string2.toLowerCase();
-    if(string1.substring(string1.length - string2.length, string1.length) == string2
-    || string2.substring(string2.length - string1.length, string2.length) == string1){
-        return(true);
-    }else{
-        return(false);
-    }
+    return(string1.substring(string1.length - string2.length, string1.length) == string2
+    || string2.substring(string2.length - string1.length, string2.length) == string1);
 }
 
 function starOut(str){
     var newStr = "";
-    for(i=0; i<str.length; i++){
+    for(var i=0; i<str.length; i++){
         if(str[i] != "*" && str[i + 1] == "*") {
         }else{
             newStr += str[i];
         }
     }
     var newStr2 = "";
-    for(i=0; i<newStr.length; i++) {
-        if (newStr[i] != "*" && newStr[i - 1] == "*") {
+    for(var j=0; j<newStr.length; j++) {
+        if (newStr[j] != "*" && newStr[j - 1] == "*") {
         }else{
-            newStr2 += newStr[i];
+            newStr2 += newStr[j];
         }
     }
     var newStr3 = "";
-    for(i=0; i<newStr2.length; i++) {
-        if(newStr2[i] == "*"){
+    for(var k=0; k<newStr2.length; k++) {
+        if(newStr2[k] == "*"){
         }else{
-            newStr3 += newStr2[i];
+            newStr3 += newStr2[k];
         }
     }
     return(newStr3);
@@ -284,7 +268,7 @@ function canBalance(array){
 
 function countClumps(array){
     var clumps = 0;
-    for(i=1; i<array.length; i++){
+    for(var i=1; i<array.length; i++){
         if(array[i] == array[i-1] && array[i] != array[i-2]){
             clumps ++;
         }
@@ -292,17 +276,17 @@ function countClumps(array){
     return clumps;
 }
 
-function evenlySpaced(a,b,c){
+function evenlySpaced(a,b,c) {
     var small;
     var med;
     var large;
-    if(a<=b){
-        if(b<=c){
+    if (a <= b) {
+        if (b <= c) {
             small = a;
             med = b;
             large = c;
-        }else{
-            if(a<=c){
+        } else {
+            if (a <= c) {
                 small = a;
                 med = c;
                 large = b;
@@ -314,13 +298,13 @@ function evenlySpaced(a,b,c){
             }
         }
     }
-    if(b<=a){
-        if(a<=c){
+    if (b <= a) {
+        if (a <= c) {
             small = b;
             med = a;
             large = c;
-        }else{
-            if(b<=c){
+        } else {
+            if (b <= c) {
                 small = b;
                 med = c;
                 large = a;
@@ -332,10 +316,7 @@ function evenlySpaced(a,b,c){
             }
         }
     }
-    if(med-small == large-med){
-        return true;
-    }
-    return false;
+    return (med - small == large - med);
 }
 
 
